@@ -1,0 +1,60 @@
+.header
+  .header_search
+    .header_search_logo
+      = image_tag '/material/logo/logo.png', class: "header_search_logo"
+  .notifications
+    %span
+      = render 'layouts/notifications'
+
+
+.address_edit
+  .address_edit_user
+    ログインユーザー名
+    %br/
+    = current_user.nickname
+
+    = form_for @address do |f|
+      .address_edit_forms
+        .address_edit_form
+          = f.label :postal_code, :郵便番号
+          = f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :prefecture_id, :都道府県名
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{}, class:"address_edit_form_text"
+
+
+        .address_edit_form
+          = f.label :city, :市町村名
+          = f.text_field :city, autofocus: true, autocomplete: "city",class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :address, :住所
+          = f.text_field :address,autofocus: true, autocomplete: "address",class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :apartment, :建物名
+          = f.text_field :apartment,autofocus: true, autocomplete: "apartment",class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :first_name, :名前
+          = f.text_field :first_name,autofocus: true, autocomplete: "first_name",class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :last_name, :名字
+          = f.text_field :last_name,autofocus: true, autocomplete: "last_name",class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :first_name_kana, :名前（かな）
+          = f.text_field :first_name_kana,autofocus: true, autocomplete: "first_name_kana",class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :last_name_kana, :名字（かな）
+          = f.text_field :last_name_kana,autofocus: true, autocomplete: "last_name_kana",class:"address_edit_form_text"
+
+        .address_edit_form
+          = f.label :tel, :電話番号
+          = f.text_field :tel, autofocus: true, autocomplete: "tel",class:"address_edit_form_text"
+
+      .address_edit_form_submit
+        = f.submit "変更する", class:"address_edit_form_submit_button"

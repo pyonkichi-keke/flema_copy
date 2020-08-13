@@ -1,0 +1,119 @@
+.show_header
+  .show_header_search
+    .show_header_search_logo
+      = image_tag '/material/logo/logo.png', class: "show_header_search_logo"
+
+.product
+  .product_show
+    .product_show_name
+      = @product.name
+    .product_show_main
+      .product_show_images  
+        = image_tag @product.images[0].image.url, class: "product_show_image active"
+        - @product.images.each_with_index do |image, i|
+          = image_tag image.image.url, data: {active: i}, class: "product_show_image"
+      
+      %table{class: 'product_show_lists'}
+        %tr
+          %th.product_show_list_nickname
+            出品者
+          %td
+            = @user.nickname
+        %tr
+          %th.product_show_list_category
+            カテゴリー
+          %td
+            = @product.category.name 
+        %tr
+          %th.product_show_list_brand
+            ブランド
+          %td
+            = @product.brand.name
+        %tr
+          %th.product_show_list_size
+            サイズ
+          %td
+            = @product.size.name
+        %tr
+          %th.product_show_list_status
+            商品の状態
+          %td
+            = @product.status.name
+        %tr
+          %th.product_show_list_delivery
+            配送料の負担
+          %td
+            = @product.delivery.name
+        %tr
+          %th.product_show_list_prefecture
+            発送元の地域
+          %td
+            = @product.prefecture.name
+        %tr
+          %th.product_show_list_deliverytime
+            配送日時
+          %td
+            = @product.deliverytime.name       
+    .product_show_price
+      ￥
+      = @product.price
+      %span
+        (税込み)
+      .product_show_price_delivery
+        = @product.delivery.name
+  .product_text
+    .product_text_title
+      %span
+        商品概要
+      .product_text_title_content
+        = @product.text
+
+  .product_buy
+    - if user_signed_in? && @product.user_id == current_user.id      
+      = link_to edit_product_path(@product.id), class: "product_buy_edit" do
+        %span
+          商品内容を編集する
+    -else
+      = link_to product_purchase_path(@product.id), class: "product_buy_edit" do
+        .product_buy_yes
+          商品購入画面に進む
+      
+.footer
+  .footer_lists
+    .footer_list
+      .footer_list_title
+        FURIMAについて
+      %ul.footer_list_contents
+        %li
+          会社概要（運営会社）
+        %li
+          プライバシーポリシー
+        %li
+          FURIMA利用規約
+        %li
+          ポイントに関する特約
+    
+    .footer_list
+      .footer_list_title
+        FURIMAを見る
+      %ul.footer_list_contents
+        %li
+          カテゴリー一覧
+        %li
+          ブランド一覧
+
+    .footer_list
+      .footer_list_title
+        ヘルプ＆ガイド
+      %ul.footer_list_contents
+        %li
+          FURIMAガイド
+        %li
+          FURIMAロゴ利用ガイドライン
+        %li
+          お知らせ
+
+  .footer_img
+    = image_tag "/material/logo/logo-white.png", class: "footer_img"
+    .footer_img_content
+      &copy;FURIMA

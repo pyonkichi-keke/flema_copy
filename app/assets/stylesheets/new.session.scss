@@ -1,0 +1,49 @@
+.session {
+  margin: 20px auto;
+  width: 700px;
+  padding: 50px;
+  background-color: #f1efe9;
+  border: double;
+  .session_title {
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+  }
+}
+ 
+.field-session{
+  margin-top: 30px;
+}
+.session-email {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 20px;
+}
+
+.session-password {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 20px;
+}
+
+.session_login{
+  margin: 30px auto;
+  width: 100px;
+  background-color: rgb(39, 228, 203);
+  padding: 5px 10px;
+  border-radius: 5px;
+  &_button{
+   color:white;
+  }
+}
+
+.session_signup{
+  margin-top: 50px;
+  text-align: center;
+  &_button{
+    text-decoration: none;
+    background-color: rgb(238, 103, 13);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+  }
+}

@@ -1,0 +1,106 @@
+.new_user{
+  text-align: center;
+  
+  &_icon{
+    height: 70px;
+    margin-top: 15px;
+  }
+
+  &_form{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin: 30px auto;
+    width: 740px;
+    padding: 30px;
+    background-color: #f1efe9;
+    border: double;
+    &_title{
+      font-size: 40px;
+      letter-spacing: 10px;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      margin-bottom: 40px;
+    }
+    &_submit{
+      margin: 30px auto;
+      &_button{
+        background-color: rgb(39, 228, 203);
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+        width: 100px;
+      }
+    }
+  }
+  &_login{
+    margin: 50px 0 20px 0 ;
+    &_button{
+      text-decoration: none;
+      background-color: rgb(238, 103, 13);
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: white;
+    }
+  }
+}
+
+.label-nickname {
+  margin-right: 148px;
+}
+
+.label-familyname-kana {
+  margin-right: 115px;
+}
+
+.label-familyname-kanzi {
+  margin-right: 215px;
+}
+
+.label-firstname-kana {
+  margin-right: 115px;
+}
+
+.label-firstname-kanzi {
+  margin-right: 213px;
+}
+
+.birthday {
+  margin-right: 180px;
+}
+
+.email {
+  margin-right: 130px;
+}
+
+.password {
+  margin-right: 57px;
+}
+
+.password-confirmation {
+  margin-right: 88px;
+}
+
+.size {
+  border: 1px solid #bdb4b4;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 300px;
+  height: 30px;
+}
+
+.requir {
+  color: white;
+  background-color: #5dfaff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+// エラーメッセージのcss
+#error_explanation{
+  width: 770px;
+  text-align: start;
+  ul{
+    list-style: none;
+    padding-left: 180px;
+    margin: 30px 0;
+  }
+}

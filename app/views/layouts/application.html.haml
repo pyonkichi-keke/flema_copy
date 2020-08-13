@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FleamarketSample79a
+    = csrf_meta_tags
+    = csp_meta_tag
+    %link{:href => "https://unpkg.com/ress@2.0.4/dist/ress.min.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Noto+Serif+JP&display=swap", :rel => "stylesheet"}
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application'
+  %body
+    = yield

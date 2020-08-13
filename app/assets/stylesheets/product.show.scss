@@ -1,0 +1,119 @@
+.show_header{
+  width: 100vw;
+  padding-top: 10px;
+  &_search{
+    display: flex;
+    justify-content: center;
+    transform: translate(-3%);
+    &_logo{
+      height: 60px;
+      width: 200px;
+    }
+  }
+}
+
+
+.product{
+  width: 100vw;
+  height: 1300px;
+  background-color: white;
+  padding-top: 1px;
+  .product_show{
+    margin: 20px auto;
+    width: 850px;
+    background-color: #f1efe9;
+    border: double;
+    padding: 20px;
+    &_name{
+      text-align: center;
+      font-size: 40px;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      padding: 5px 0 20px 0 ;
+      letter-spacing: 2px;
+    }
+    &_price{
+      text-align: center;
+      font-size: 40px;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      padding: 10px 0 15px 0 ;
+      letter-spacing: 2px;
+      display: flex;
+      justify-content: center;
+      span{
+        font-size: 15px;
+        padding: 30px 0  0 10px;
+      }
+      &_delivery{
+        font-size: 25px;
+        padding: 20px 0 0 10px;
+      }
+    }
+    &_main{
+      display: flex;
+    }
+    &_image{
+      height: 100px;
+      width: 100px;
+      &.active{
+        height: 450px;
+        width: 500px;
+        position: relative;
+      }
+    }
+    &_lists{
+      height: 550px;
+      width: 250px;
+      margin-left: 20px;
+      th{
+        background-color: rgb(211, 247, 247);
+        text-align: start;
+        padding-left: 5px;
+      }
+      td{
+        padding-left: 5px;
+        border: 1px solid rgb(224, 224, 224);
+        background-color: white;
+      }
+    }
+    &_list{
+      list-style: none;
+    }
+  }
+  &_text{
+    margin: auto;
+    width: 850px;
+    &_title{
+      span{
+        background-color: rgb(211, 247, 247);
+        border-radius: 5px;
+        padding: 6px;
+        font-size: 18px;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
+        &_content{
+          background-color: #f1efe9;
+          height: 300px;
+          padding: 7px;
+        }
+      }
+    }
+    &_buy{
+      margin: 50px auto;
+      width: 800px;
+      background-color: rgb(71, 243, 214);
+      text-align: center;
+      border-radius: 5px;
+      &_edit{
+        text-decoration: none;
+        color: white;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-size: 30px;      
+      }
+      &_yes{
+        text-decoration: none;
+        color: white;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-size: 30px;  
+      }
+    }
+  }

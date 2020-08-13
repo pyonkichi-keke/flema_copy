@@ -1,0 +1,93 @@
+.show_header{
+  width: 100vw;
+  padding-top: 10px;
+  &_search{
+    display: flex;
+    justify-content: center;
+    transform: translate(-3%);
+    margin-top: 10px;
+    &_logo{
+      height: 60px;
+      width: 200px;
+    }
+  }
+}
+
+.card{
+  width: 100vw;
+  background-color: white;
+  padding-top: 1px;
+  .card_purchace{
+    margin: 40px auto;
+    width: 600px;
+    background-color: #f1efe9;
+    border: double;
+    padding: 20px;
+    &_name{
+      text-align: center;
+      font-size: 35px;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      padding: 40px 0 20px 0 ;
+      letter-spacing: 2px;
+      text-align: start;
+    }
+    &_price{
+      text-align: center;
+      font-size: 25px;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      padding: 20px 0 15px 0 ;
+      letter-spacing: 2px;
+      display: flex;
+      justify-content: center;
+      margin-top: 80px;
+      span{
+        font-size: 15px;
+        padding: 30px 0  0 10px;
+      }
+      &_delivery{
+        font-size: 15px;
+        padding: 20px 0 0 10px;
+      }
+    }
+    &_main{
+      display: flex;
+      justify-content: space-around;
+      &_prefecture{
+        margin-top: 40px;
+        text-align: start;
+        &_title{
+          font-size: 25px;
+          padding: 0 15px;
+        }
+        &_content{
+          font-size: 18px;
+          padding: 0 20px;
+        }
+      }
+    }
+    &_image{
+      height: 250px;
+      width: 250px;
+    }
+  }
+}
+
+.card_buy{
+  margin: 25px 0;
+  span{
+    border-bottom: 1px solid black;
+  }
+  &_option{
+    margin-top: 15px;
+  }
+  &_submit{
+  margin-top: 15px;
+  &_button{
+  color: white;
+  padding: 5px 25px;
+  border-radius: 5px;
+  background-color: rgb(71, 243, 214);
+  text-decoration: none;
+  }
+  }
+}

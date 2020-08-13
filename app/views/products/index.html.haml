@@ -1,0 +1,269 @@
+.header
+  .header_search
+    .header_search_logo
+      = image_tag '/material/logo/logo.png', class: "header_search_logo"
+    .header_search_form
+      = form_with url: 'search_products_path', local: true, class:"header_search_form" do |f|
+        = f.text_field :keyword, class: "header_search_form_text", placeholder: "商品を探す"
+        = f.label :submit do
+          = f.submit class: "hidden"
+          .header_search_form_submit
+            = image_tag "/material/icon/icon-search 1.png", class: "header_search_form_submit_icon"
+  
+  .notifications
+    %span
+      = render 'layouts/notifications'
+
+  .header_link
+    .header_link_left
+      .header_link_left_category
+        カテゴリー
+        .header_link_left_category_lists
+          - @categories.each do |category|
+            .header_link_left_category_lists_name
+              = category.name
+              %br/
+      .header_link_left_brand
+        ブランド
+    
+    .header_link_right
+      - if user_signed_in?
+        .header_link_right_logout
+          = link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: "header_link_right_logout_name"
+          = link_to destroy_user_session_path, method: :delete, class: "header_link_right_logout" do
+            ログアウト
+      - else
+        .header_link_right_login
+          = link_to new_user_session_path, class: "header_link_right_login" do
+            ログイン
+        .header_link_right_signup
+          = link_to new_user_registration_path, class: "header_link_right_signup" do
+            新規会員登録
+      
+
+    
+      
+
+.main
+  .main_top
+    =image_tag '/material/pict/bg-mainVisual-pict_pc.jpg', class: "main_top_img"
+    .main_top_appstore
+      = image_tag "/material/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "main_top_appstore_img"
+    .main_top_google
+      = image_tag "/material/icon/google-play-badge.png", class: "main_top_google_img"
+
+
+
+    .main_top_title
+      %h1
+        人生を変えるフリマアプリ
+      %p
+        FURIMAは誰でも簡単に出品・購入できる 
+        %br
+        フリマアプリです
+  
+  .main_reason
+    .main_reason_title
+      FURIMAが選ばれる３つの理由
+
+    %ul.main_reason_lists
+      %li.main_reason_list
+        .main_reason_list_img
+          .main_reason_list_img_num
+            1
+          = image_tag '/material/pict/pict-reason-01.jpg', class: "main_reason_list_img"
+        .main_reason_list_content
+          %h1
+            %span
+              3分
+            ですぐに出品
+          %p
+            スマホで入力するだけで簡単に出品ができる！
+
+      %li.main_reason_list  
+        .main_reason_list_img
+          .main_reason_list_img_num 
+            2
+          = image_tag '/material/pict/pict-reason-02.jpg', class: "main_reason_list_img"
+        .main_reason_list_content
+          %h1
+            %span
+              シンプル
+            で使いやすい
+          %p
+            めんどくさい入力はなく、検索も購入もスムーズ！
+
+      %li.main_reason_list
+        .main_reason_list_img
+          .main_reason_list_img_num
+            3
+          = image_tag '/material/pict/pict-reason-03.jpg', class: "main_reason_list_img"
+        .main_reason_list_content
+          %h1
+            手数料
+            %span
+              業界最安
+          %p
+            最大３％でお得に出品＆購入！
+
+  .main_middle
+    .main_middle_img
+      =image_tag "/material/pict/bg-topMiddleDl-pict.jpg", class: "main_middle_img"  
+      .main_middle_img_content
+        %h1
+          会員数日本一位
+        %p
+          FURIMAは、フリマアプリで最も人気。
+          %br/
+          出品・購入回数も業界最多です！
+          %br/
+          ほしかったあの商品に出会えるかもしれません。
+    .main_middle_appstore
+      = image_tag "/material/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "main_middle_appstore_img"
+    .main_middle_google
+      = image_tag "/material/icon/google-play-badge.png", class: "main_middle_google_img"
+
+  
+  .main_chara
+    .main_chara_title
+      FURIMAの特徴
+
+    .main_chara_lists
+      .main_chara_list
+        .main_chara_list_img
+          =image_tag "/material/icon/icon-01.png", class: "main_chara_list_img"    
+        .main_chara_list_content
+          %h1
+            簡単に売り買いできる
+          %p
+            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+
+      .main_chara_list
+        .main_chara_list_img
+          =image_tag "/material/icon/icon-03.png", class: "main_chara_list_img"      
+        .main_chara_list_content
+          %h1
+            売上金は即日振込みに対応
+          %p
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+        
+      .main_chara_list
+        .main_chara_list_img  
+          =image_tag "/material/icon/icon-02.png", class: "main_chara_list_img"   
+        .main_chara_list_content
+          %h1
+            様々な支払いに対応
+          %p
+            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+        
+
+  .main_pickup
+    .main_pickup_category
+      %h1
+        ピックアップカテゴリー
+      %p
+        新規投稿商品
+      .main_pickup_category_lists
+        - @products.each do |product|
+          .main_pickup_category_list
+            = link_to product_path(product.id) do
+              .main_pickup_category_list_img
+                = image_tag product.images.first.image.url, class: "main_pickup_category_list_img"
+              .main_pickup_category_list_name
+                = product.name
+              .main_pickup_category_list_option
+                .main_pickup_category_list_option_price
+                  = product.price
+                  円
+                  %span
+                    (税込)
+                .main_pickup_category_list_option_likes
+                  ❤️10
+              -if product.buy_user_id.present?
+                .sold_out
+                  sold out
+        
+    
+    .main_pickup_brand
+      %h1
+        ピックアップブランド
+      %p
+        アーカイバ
+      .main_pickup_brand_lists
+        - @products.each do |product|
+          .main_pickup_brand_list
+            = link_to product_path(product.id) do
+              .main_pickup_brand_list_img
+                =image_tag product.images.first.image.url, class: "main_pickup_brand_list_img"
+              .main_pickup_brand_list_name
+                = product.name
+              .main_pickup_brand_list_option
+                .main_pickup_brand_list_option_price
+                  = product.price
+                  円
+                  %span
+                    (税込)
+                .main_pickup_brand_list_option_likes
+                  ❤️10
+              -if product.buy_user_id.present?
+                .sold_out
+                  sold out
+
+    .main_footer
+      .main_footer_img
+        = image_tag "/material/pict/bg-appBanner-pict.jpg", class: "main_footer_img"
+        .main_footer_img_content
+          %h1
+            だれでもかんたん、人生を変えるフリマアプリ
+          %p
+            今すぐ無料ダウンロード！
+      .main_footer_icon
+        .main_footer_icon_appstore
+          = image_tag "/material/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "main_footer_icon_appstore_img"
+        .main_footer_icon_google
+          = image_tag "/material/icon/google-play-badge.png", class: "main_footer_icon_google_img"
+
+.footer
+  .footer_lists
+    .footer_list
+      .footer_list_title
+        FURIMAについて
+      %ul.footer_list_contents
+        %li
+          会社概要（運営会社）
+        %li
+          プライバシーポリシー
+        %li
+          FURIMA利用規約
+        %li
+          ポイントに関する特約
+    
+    .footer_list
+      .footer_list_title
+        FURIMAを見る
+      %ul.footer_list_contents
+        %li
+          カテゴリー一覧
+        %li
+          ブランド一覧
+
+    .footer_list
+      .footer_list_title
+        ヘルプ＆ガイド
+      %ul.footer_list_contents
+        %li
+          FURIMAガイド
+        %li
+          FURIMAロゴ利用ガイドライン
+        %li
+          お知らせ
+
+  .footer_img
+    = image_tag "/material/logo/logo-white.png", class: "footer_img"
+    .footer_img_content
+      &copy;FURIMA
+  
+  .footer_camera
+    = link_to new_product_path, class: "footer_camera_link" do
+      出品する
+      = image_tag "/material/icon/icon_camera.png", class: "footer_camera_icon"

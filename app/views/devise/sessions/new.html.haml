@@ -1,0 +1,26 @@
+.new_user
+  .new_user_icon
+    = image_tag "/material/logo/logo.png", class: "new_user_icon"
+
+
+.session
+  .session_title ログイン
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field-session
+      .session-email
+        = f.label :メールアドレス
+      %br/
+      .session-email-field
+        = f.email_field :email, autofocus: true, autocomplete: "email", class:"size"
+    .field-session
+      .session-password
+        = f.label :パスワード
+      %br/
+      = f.password_field :password, class:"size"
+    .session_login
+      = f.submit "ログイン", class: "session_login_button"
+  
+  
+  .session_signup
+    = link_to new_user_registration_path, class: "session_signup_button" do
+      新規登録はこちら

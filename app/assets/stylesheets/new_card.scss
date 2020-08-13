@@ -1,0 +1,40 @@
+.new_card{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin: 20px auto;
+  width: 700px;
+  padding: 50px;
+  background-color: #f1efe9;
+  border: double;
+  &_user{
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+    span{
+      font-size: 25px;
+    }
+  }
+  &_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 450px;
+    &_text{
+      border: 1px solid #bdb4b4;
+      border-radius: 5px;
+      width: 250px;
+      padding-left: 10px;
+      margin-top: 7px;
+    }
+  }
+}
+
+#token_submit{
+  background-color: rgb(39, 228, 203);
+  color: white;
+  padding: 10px 20px;
+  margin-top: 70px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+

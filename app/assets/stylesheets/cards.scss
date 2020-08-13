@@ -1,0 +1,28 @@
+.card {
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  &__number {
+    margin: 10px;
+    &--input {
+      .number {
+        border: 1px solid black;
+      }
+    }
+  }
+  &__expiration {
+    margin: 10px;
+    &--input {
+      .number {
+        border: 1px solid black;
+      }
+    }
+  }
+  .card__security {
+    margin: 10px;
+    &--input {
+      .number {
+        border: 1px solid black;
+      }
+    }
+  }
+}

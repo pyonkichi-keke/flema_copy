@@ -1,0 +1,50 @@
+.header
+  .header_search
+    .header_search_logo
+      = image_tag '/material/logo/logo.png', class: "header_search_logo"
+  .notifications
+    %span
+      = render 'layouts/notifications'
+
+.user_edit
+  .user_edit_user
+    ログインユーザー名
+    %br/
+    = @user.nickname
+
+    = form_for @user do |f|
+      .user_edit_forms
+        .user_edit_form
+          = f.label :nickname, :ニックネーム
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"user_edit_form_text"
+
+        .user_edit_form
+          = f.label :last_name_kana, :苗字（かな）
+          = f.text_field :last_name_kana, autocomplete: "last_name_kana", class:"user_edit_form_text"
+
+        .user_edit_form
+          = f.label :last_name, :苗字
+          = f.text_field :last_name, autocomplete: "last_name",class:"user_edit_form_text"
+
+        .user_edit_form
+          = f.label :first_name_kana, :名前（かな）
+          = f.text_field :first_name_kana, autocomplete: "first_name_kana",class:"user_edit_form_text"
+
+        .user_edit_form
+          = f.label :first_name, :名前
+          = f.text_field :first_name, autocomplete: "first_name",class:"user_edit_form_text"
+        
+        .user_edit_form
+          = f.label :introdaction, :自己紹介
+          = f.text_area :introdaction, class:"user_edit_form_text"
+
+        .user_edit_form
+          = f.label :birthday, :生年月日
+          = f.text_field :birthday, autocomplete: "birthday",class:"user_edit_form_text"
+
+        .user_edit_form
+          = f.label :email, :メールアドレス
+          = f.text_field :email, autocomplete: "email",class:"user_edit_form_text"
+
+      .user_edit_form_submit
+        = f.submit "変更する", class:"user_edit_form_submit_button"

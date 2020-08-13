@@ -1,0 +1,73 @@
+.new_user
+  .new_user_icon
+    = image_tag "/material/logo/logo.png", class: "new_user_icon"
+
+.new_user_form
+  .new_user_form_title
+    住所情報登録
+  = form_for @address do |f|
+    = render "devise/shared/error_messages", resource: @address
+    .field
+      .requir
+        必須
+      = f.label :郵便番号, class: "postalcode-label"
+      %br/
+      .address-field
+        = f.text_field :postal_code, placeholder:"例） 123-4567", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :都道府県名, class: "prefectures-label"
+      %br/
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{}, class:"size"
+    .field
+      .requir
+        必須
+      = f.label :市町村名, class: "city-label"
+      %br/
+      = f.text_field :city, placeholder:"例） 福岡市", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :住所, class: "streetaddress-label"
+      %br/
+      = f.text_field :address, placeholder:"例） 博多区中洲◯丁目◯−◯ ", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :建物名, class: "building-label"
+      %br/
+      = f.text_field :apartment, placeholder:"例） ◯◯マンション101号室", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :名字（かな）, class: "familyname-kana-label"
+      %br/
+      = f.text_field :last_name_kana, placeholder:"例） ヤマダ", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :名字, class: "familyname-kanzi-label"
+      %br/
+      = f.text_field :last_name, placeholder:"例） 山田", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :名前（かな）, class: "firstname-kana-label"
+      %br/
+      = f.text_field :first_name_kana, placeholder:"例） タロウ", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :名前, class: "firstname-kanzi-label"
+      %br/
+      = f.text_field :first_name, placeholder:"例） 太郎", class:"size"
+    .field
+      .requir
+        必須
+      = f.label :電話番号, class: "tel-label"
+      %br/
+      = f.text_field :tel, placeholder:"例） 012-3456-7890", class:"size"
+  
+    .actions
+      = f.submit "登録", class:"actions_button"

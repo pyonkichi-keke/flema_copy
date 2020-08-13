@@ -1,0 +1,53 @@
+.show_header
+  .show_header_search
+    .show_header_search_logo
+      = image_tag '/material/logo/logo.png', class: "show_header_search_logo"
+
+.card
+  .card_purchace
+    .card_purchace_main
+      .card_purchace_images  
+        = image_tag @product.images[0].image.url, class: "card_purchace_image"
+      .card_purchace_name
+        = @product.name
+        .card_purchace_price
+          ￥
+          = @product.price
+          %span.card_purchace_price_delivery
+            = @product.delivery.name
+          %span
+            (税込み)
+    
+    .card_purchace_main_prefecture
+      .card_purchace_main_prefecture_title
+        配送先住所
+      .card_purchace_main_prefecture_content
+        .card_purchace_main_prefecture_content_postal
+          〒
+          = current_user.address.postal_code
+        .card_purchace_main_prefecture_content_address
+          = current_user.address.prefecture.name
+          = current_user.address.city
+          = current_user.address.address
+          = current_user.address.apartment
+        .card_purchace_main_prefecture_content_name
+          = current_user.last_name
+          = current_user.first_name
+    
+    .card_buy
+      - if @default_card_information.blank?
+        %br/
+      - else
+        %span
+          支払いカード情報
+        %br/
+        .card_buy_option
+          = "**** **** **** " + @default_card_information.last4 + "/"
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          有効期限
+          = exp_month + " / " + exp_year
+        %br/
+      .card_buy_submit
+        = link_to pay_product_purchases_path, method: :post, class: "card_buy_submit_button" do
+          購入する

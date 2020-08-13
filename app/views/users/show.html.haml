@@ -1,0 +1,65 @@
+.header
+  .header_search
+    .header_search_logo
+      = image_tag '/material/logo/logo.png', class: "header_search_logo"
+
+.notifications
+  %span
+    = render 'layouts/notifications'
+
+.user_show
+  .user_show_title
+    ログインユーザー情報
+
+  .user_show_contents
+    .user_show_contents_list
+      ニックネーム
+      %div
+        = current_user.nickname
+    .user_show_contents_list
+      苗字（かな）
+      %div
+        = current_user.last_name_kana
+    .user_show_contents_list
+      苗字
+      %div
+        = current_user.last_name
+    .user_show_contents_list
+      名前（かな）
+      %div
+        = current_user.first_name_kana
+    .user_show_contents_list
+      名前
+      %div
+        = current_user.first_name
+    .user_show_contents_list
+      自己紹介
+      %div
+        -if current_user.introdaction.present?
+          = current_user.introdaction
+        -else
+          まだ自己紹介文はありません  
+    .user_show_contents_list
+      生年月日
+      %div
+        = current_user.birthday
+        
+    .user_show_contents_list
+      登録メールアドレス
+      %div
+        = current_user.email
+
+    .user_show_contents_list_card
+      -if @card.present?
+        = link_to delete_credit_cards_path, method: :post, class: "user_show_contents_list_card" do
+          クレジットカード情報削除
+      -else
+        = link_to new_credit_card_path, class: "user_show_contents_list_card" do
+          クレジットカード登録
+    .user_show_contents_list_edit
+      %div
+        = link_to edit_user_registration_path, class: "user_show_contents_list_edit_button" do
+          ユーザー情報変更
+      %div
+        = link_to edit_address_path, class: "user_show_contents_list_edit_button" do
+          配送先住所変更
